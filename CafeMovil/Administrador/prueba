@@ -1,0 +1,7 @@
+<?php $hoy = getdate();
+echo $hoy['mday'];
+echo $hoy['seconds'];
+echo $hoy['hours'];
+echo $hoy['minutes'];
+
+?>
