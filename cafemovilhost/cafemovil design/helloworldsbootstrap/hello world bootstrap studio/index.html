@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/user.css">
+</head>
+
+<body>
+    <div class="container">
+        <header><img src="assets/img/logo.svg">
+            <h1>Bootstrap Studio</h1>
+            <p class="lead text-center text-muted">Getting Started Guide</p>
+        </header>
+        <hr>
+        <p class="text-center text-info">This is a quick tutorial that will explain the basics about designing websites with Bootstrap Studio. </p>
+        <hr>
+        <section class="content">
+            <h2 class="text-uppercase text-center">1. The application window</h2>
+            <p class="text-left">The window is divided into three parts. You have two panels on the left - <strong>Components</strong> and <strong>Overview;</strong> two panels on the right - <strong>Options</strong> and <strong>Design,</strong> and the center area, which
+                holds the <strong>Stage.</strong></p>
+            <p class="text-left">The <strong>Stage</strong> is where you see a preview of the page, drag and drop components and edit text. </p>
+        </section>
+        <section class="content">
+            <h2 class="text-uppercase text-center">2. Selecting Components</h2>
+            <p class="text-left">Select components by clicking them. Selecting a component shows a blue outline around it, and a bar with quick actions: </p>
+            <figure><img class="img-thumbnail" src="assets/img/selected component.png">
+                <figcaption>This is what a selected paragraph looks like.</figcaption>
+            </figure>
+            <p class="text-left">With these actions you can quickly move the item, edit its text and duplicate it. Keep in mind that not all actions are available on every component. For example text editing isn't shown on images. </p>
+            <p class="text-left">When a component is selected, the <strong>Option panel</strong> on the right is updated. This is the place where you can modify the styling of the component, control various properties and even create animations. </p>
+            <figure><img class="img-thumbnail" src="assets/img/options panel.png">
+                <figcaption>The <strong>Options</strong> panel displaying settings for the paragraph.</figcaption>
+            </figure>
+            <p class="text-left">There are three tab in the Options panel - <strong><em>Look and Feel</em></strong>, <strong><em>Options</em></strong> and <strong><em>Animations</em></strong>. The settings that are available in these three tabs give you a great deal of control
+                over the design and behavior of components. But if you need even more control, then writing CSS is for you (see the "<span style="text-decoration: underline;">Writing CSS and JavaScript</span>" tutorial for more). </p>
+            <p class="text-left">One thing to keep in mind, is that some of Bootstrap's components are actually made out of others, like this dropdown: </p>
+            <div class="dropdown"><button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Dropdown <span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu">
+                    <li role="presentation"><a href="#">First Item</a></li>
+                    <li role="presentation"><a href="#">Second Item</a></li>
+                    <li role="presentation"><a href="#">Third Item</a></li>
+                </ul>
+            </div>
+            <p class="text-left">If you attempt to select it, you will actually select the <strong>Button</strong> inside it. If you wish to see the options of the <strong>Dropdown,</strong> you need to go one component up. This is easy to do by clicking the "Up" button (
+                <img src="assets/img/up button.png"> ) on the selected component, or the entry in the breadcrumbs bar, displayed at at the top of the <strong>Options</strong> panel: </p>
+            <figure><img class="img-thumbnail" src="assets/img/button options.png"></figure>
+        </section>
+        <section class="content">
+            <h2 class="text-uppercase text-center">3. Editing Text</h2>
+            <p class="text-left">Some elements like paragraphs, spans and buttons can be edited within a rich text editor. You can make text <strong>bold,</strong> <em>italic</em>, <span style="text-decoration: underline;">underlined</span>, add <a href="https://bootstrapstudio.io/"
+                    target="_blank">links</a> and <span style="text-decoration: line-through;">more</span>. </p>
+            <p class="text-left">Just double click an element to edit its content, or press the pencil button ( <img src="assets/img/pencil button.png"> ) when the component is focused. </p>
+            <blockquote>
+                <p><strong>Tip:</strong> You can press the <strong>Enter</strong> key while an element is selected to start editing it, <strong>Ctrl+D/Cmd+D</strong> to duplicate and <strong>Delete</strong> to delete it. There is a <a href="https://bootstrapstudio.io/pages/keyboard-shortcuts">list of supported keyboard shortcuts</a>                    for power users on our website.&nbsp; </p>
+            </blockquote>
+        </section>
+        <section class="content">
+            <h2 class="text-uppercase text-center">4. Drag and Drop</h2>
+            <p class="text-left">When an element is selected, you can grab it by the move handle ( <img src="assets/img/move button.png"> ) to drag and drop it into other components.</p>
+            <p class="text-left">Some elements like the <strong>HTML</strong> and <strong>Body</strong> are locked and can't be moved (you can recognize them by the small padlock in the <strong>Overview</strong> panel). This is done so that you don't break the page by mistake.
+                </p>
+            <figure><img class="img-thumbnail" src="assets/img/overview panel.png"></figure>
+            <p class="text-left">Bootstrap Studio knows where components can be dropped and automatically adds CSS classes and other attributes that the Bootstrap Framework expects. You don't even have to think about it. </p>
+            <blockquote>
+                <p><strong>Tip:</strong> You can drag from the <strong>Stage</strong> and drop components on the <strong>Overview</strong> panel for greater precision. </p>
+            </blockquote>
+        </section>
+        <section class="content">
+            <h2 class="text-uppercase text-center">5. Components</h2>
+            <p class="text-left">There is a large number of components available to you. You can see them in the <strong>Components</strong> panel's <strong>Studio</strong> tab. All standard Bootstrap components are supported, and even basic HTML elements like <strong>span</strong>,
+                <strong>div</strong>, <strong>section</strong> and more. </p>
+            <figure><img class="img-thumbnail" src="assets/img/components panel.png"></figure>
+            <p class="text-left">Components are organized into collapsible groups - <em>Text</em>, <em>Image</em>, <em>Forms</em> etc. You also have a special "<em>User</em>" group, where you can place components which you create yourself. This is a good way to extract pieces
+                of your designs which you need often. We will cover this in the <span style="text-decoration: underline;">Custom Components</span> tutorial. </p>
+            <p class="text-left">The <strong>Online</strong> tab holds a large number of community contributed components like headers, footers, pricing tables and more, which you can search and install. </p>
+        </section>
+        <section class="content">
+            <h2 class="text-uppercase text-center">6. Opening and Saving</h2>
+            <p class="text-left">The documents that you create in Bootstrap Studio are called <strong>Designs.</strong> You can open them and save them as files with the <strong>.bsdesign</strong> extension. </p>
+            <p class="text-left">Double clicking one of these files in your file manager will open them in Bootstrap Studio. You can duplicate designs and work on multiple versions at once. </p>
+        </section>
+        <section class="content">
+            <h2 class="text-uppercase text-center">You're ready to rock and roll!</h2>
+            <p class="text-left">Bootstrap Studio is a powerful tool that makes building responsive websites a breeze. You now know enough to create your first webpage! There are quite a few powerful features that we haven't mentioned. You can learn about them by checking
+                one of the other tutorials in the <strong>Help menu</strong>. Have fun! </p>
+        </section>
+        <hr>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
