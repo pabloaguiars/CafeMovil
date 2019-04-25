@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Hash;
 
 class CreateStudentsTable extends Migration
 {
@@ -51,7 +52,7 @@ class CreateStudentsTable extends Migration
         DB::table('users')->insert(
             array(
                 'email' => 'paguiar_student@uwu.com',
-                'password' => 'password',
+                'password' => Hash::make($request->input('password')),
                 'status' => false,
                 'id_user_type' => 3
             )

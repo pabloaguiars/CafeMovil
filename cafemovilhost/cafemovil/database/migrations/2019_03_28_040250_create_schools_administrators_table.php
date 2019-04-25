@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Hash;
 
 class CreateSchoolsAdministratorsTable extends Migration
 {
@@ -51,7 +52,7 @@ class CreateSchoolsAdministratorsTable extends Migration
         DB::table('users')->insert(
             array(
                 'email' => 'paguiar_school_administrator@uwu.com',
-                'password' => 'password',
+                'password' => Hash::make($request->input('password')),
                 'status' => false,
                 'id_user_type' => 1
             )
