@@ -25,8 +25,7 @@ class CreateStudentsTable extends Migration
             $table->string('email')->unique()->nullable($value = false);
             $table->string('phone')->unique()->nullable($value = false);
             $table->timestamp('email_verified_at')->nullable($value = true);
-            $table->boolean('status');
-            $table->string('imag_url')->nullable($value = true);
+            $table->string('image_name')->nullable($value = false)->default('user-default.png');
             $table->timestamps();
             $table->bigInteger('id_school')->unsigned();
         });
@@ -35,6 +34,28 @@ class CreateStudentsTable extends Migration
             //add foreign keys
             $table->foreign('id_school')->references('id')->on('schools');
         });
+
+        DB::table('students')->insert(
+            array(
+                'id_at_school' => '16211958',
+                'name' => 'Pablo',
+                'father_last_name' => 'Aguiar',
+                'mother_last_name' => 'Solis',
+                'curp' => 'AUSP980730HBCGLB00',
+                'email' => 'paguiar_student@uwu.com',
+                'phone' => '6644437802',
+                'id_school' => 1
+            )
+        );
+
+        DB::table('users')->insert(
+            array(
+                'email' => 'paguiar_student@uwu.com',
+                'password' => 'password',
+                'status' => false,
+                'id_user_type' => 3
+            )
+        );
     }
 
     /**

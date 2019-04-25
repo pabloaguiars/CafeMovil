@@ -14,3 +14,21 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/iniciar', function () {
+    return view('login');
+});
+
+Route::get('/registrarme', 'ShowSchoolsSignUpController');
+
+Route::resources([
+    'escuelas' => 'SchoolController'
+]);
+
+Route::resources([
+    'estudiantes' => 'StudentController'
+]);
+
+Route::resources([
+    'usuarios' => 'UserController'
+]);

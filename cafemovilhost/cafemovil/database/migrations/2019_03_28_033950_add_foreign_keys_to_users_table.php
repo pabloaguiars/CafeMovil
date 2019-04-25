@@ -17,6 +17,7 @@ class AddForeignKeysToUsersTable extends Migration
             //add foreign keys
             $table->foreign('id_user_type')->references('id')->on('users_types');
         });
+        
     }
 
     /**

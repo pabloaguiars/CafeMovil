@@ -17,9 +17,25 @@ class CreateUsersTypesTable extends Migration
             $table->engine = 'InnoDB';
             //columns
             $table->bigIncrements('id');
-            $table->string('description')->nullable($value = false);;
+            $table->string('description')->nullable($value = false);
             $table->timestamps();
         });
+
+        DB::table('users_types')->insert(
+            array(
+                'description' => 'Administrador de Escuela'
+            )
+        );
+        DB::table('users_types')->insert(
+            array(
+                'description' => 'Vendedor'
+            )
+        );
+        DB::table('users_types')->insert(
+            array(
+                'description' => 'Estudiante'
+            )
+        );
     }
 
     /**

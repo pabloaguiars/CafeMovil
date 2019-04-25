@@ -108,12 +108,10 @@
                 <div class="p">
                     está en desarrollo.
                 </div>
-                
-                <!--
                 <div class="links">
-                    <a href="#"></a>
+                    <a href="/iniciar">Iniciar sesión</a>
+                    <a href="/registrarme">Registrarme</a>
                 </div>
-                -->
             </div>
         </div>
     </body>
