@@ -15,24 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/iniciar', function () {
-    return view('login');
-});
+Auth::routes();
 
-Route::get('/registrarme', 'ShowSchoolsSignUpController');
-
-Route::get('/principal', function () {
-    return view('main');
-});
-
-Route::resources([
-    'escuelas' => 'SchoolController'
-]);
-
-Route::resources([
-    'estudiantes' => 'StudentController'
-]);
-
-Route::resources([
-    'usuarios' => 'UserController'
-]);
+Route::get('/home', 'HomeController@index')->name('home');

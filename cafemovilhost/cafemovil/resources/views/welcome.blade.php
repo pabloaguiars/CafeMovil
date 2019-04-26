@@ -47,6 +47,7 @@
 
             .title {
                 font-size: 84px;
+    
             }
 
             .p {
@@ -92,10 +93,10 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}">Iniciar sesión</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}">Registrarme</a>
                         @endif
                     @endauth
                 </div>
@@ -109,8 +110,8 @@
                     está en desarrollo.
                 </div>
                 <div class="links">
-                    <a href="/iniciar">Iniciar sesión</a>
-                    <a href="/registrarme">Registrarme</a>
+                    <!-- <a href="/iniciar">Iniciar sesión</a>
+                    <a href="/registrarme">Registrarme</a> -->
                 </div>
             </div>
         </div>

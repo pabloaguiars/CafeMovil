@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Student;
-use App\User;
 
 class StudentController extends Controller
 {
@@ -38,37 +37,8 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-
-        $user = new User;
-        $user->email = $request->input('email');
-        $user->password = Hash::make($request->input('password'));
-        $user->status = false;
-        $user->id_user_type = 3;
-
-        $user->save();
-
-        // add student
-        $student = new Student;
-        $student->id_at_school = $request->input('id_at_school');
-        $student->name = $request->input('name');
-        $student->father_last_name = $request->input('father_last_name');
-        $student->mother_last_name = $request->input('mother_last_name');
-        $student->curp = $request->input('curp');
-        $student->email = $request->input('email');
-        $student->phone = $request->input('phone');
-        $student->id_school = $request->input('school');
-
-        if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('profile-images');
-            $student->image_url = $path;
-        }
-
-        $student->save();
-
-        return redirect('/iniciar');
+        //
+        
     }
 
     /**

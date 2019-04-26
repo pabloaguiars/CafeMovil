@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Student;
+use App\School;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+
 
 class RegisterController extends Controller
 {
@@ -41,6 +44,16 @@ class RegisterController extends Controller
     }
 
     /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        return view('auth.register',['schools' => School::all()]);
+    }
+
+    /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
@@ -52,6 +65,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'image' => ['mimes:jpeg,jpg,png,gif|required|max:10000']
         ]);
     }
 
@@ -63,9 +77,28 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $student = new Student;
+        $student->id_at_school = $data['id_at_school'];
+        $student->name = $data['name'];
+        $student->father_last_name = $data['father_last_name'];
+        $student->mother_last_name = $data['mother_last_name'];
+        $student->curp = $data['curp'];
+        $student->email = $data['email'];
+        $student->phone = $data['phone'];
+        $student->id_school = $data['id_school'];
+
+        $image = $data['image'];
+        if ($image->isValid('image')) {
+            $path = $image->store('profile-images');
+            $student->image_url = $path;
+        }
+
+        $student->save();
+
         return User::create([
-            'name' => $data['name'],
             'email' => $data['email'],
+            'status' => false,
+            'id_user_type' => 3,
             'password' => Hash::make($data['password']),
         ]);
     }
