@@ -26,29 +26,6 @@ class CreateSchoolsTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
         });
-
-        // Insert
-        DB::table('schools')->insert(
-            array(
-                'name' => 'Instituto Tecnológico de Tijuana',
-                'alias' => 'ITT',
-                'campus' => 'Tomas Aquino',
-                'address' =>  'Av Castillo de Chapultepec 562, Tomas Aquino, 22414 Tijuana, B.C.',
-                'phone' => '6646078400',
-                'email' => 'tomasaquino@tectijuana.com.mx'
-            )
-        );
-
-        DB::table('schools')->insert(
-            array(
-                'name' => 'Universidad Autonoma de Baja California',
-                'alias' => 'UABC',
-                'campus' => 'Tijuana',
-                'address' =>  'Universidad 14418, UABC, Parque Internacional Industrial Tijuana, 22427 Tijuana, B.C.',
-                'phone' => '6649797500',
-                'email' => 'tijuana@uabc.com.mx'
-            )
-        );
     }
 
     /**
