@@ -52,7 +52,7 @@ class CreateSchoolsAdministratorsTable extends Migration
         DB::table('users')->insert(
             array(
                 'email' => 'paguiar_school_administrator@uwu.com',
-                'password' => Hash::make($request->input('password')),
+                'password' => Hash::make('password'),
                 'status' => false,
                 'id_user_type' => 1
             )

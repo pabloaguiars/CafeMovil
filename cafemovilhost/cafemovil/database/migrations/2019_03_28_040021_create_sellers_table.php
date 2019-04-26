@@ -52,7 +52,7 @@ class CreateSellersTable extends Migration
         DB::table('users')->insert(
             array(
                 'email' => 'paguiar_seller@uwu.com',
-                'password' => Hash::make($request->input('password')),
+                'password' => Hash::make('password'),
                 'status' => false,
                 'id_user_type' => 2
             )

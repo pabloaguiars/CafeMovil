@@ -9,7 +9,7 @@
 	<body>
 		<center>
 			<h1>Registrarse</h1>
-			<form action = "/estudiantes" method = "post">
+			<form action = "/estudiantes" method = "post" enctype="multipart/form-data">
 				@csrf
 				Nombre: 
 				<input type="text" placeholder="" name = "name" required> <br> <br>
