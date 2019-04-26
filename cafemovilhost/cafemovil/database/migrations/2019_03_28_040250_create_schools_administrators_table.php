@@ -26,7 +26,7 @@ class CreateSchoolsAdministratorsTable extends Migration
             $table->string('email')->unique()->nullable($value = false);
             $table->string('phone')->unique()->nullable($value = false);
             $table->timestamp('email_verified_at')->nullable($value = true);
-            $table->string('image_url')->nullable($value = false)->default('user-default.png');
+            $table->string('image_url')->nullable($value = false)->default('profile-images/user-default.png');
             $table->timestamps();
             $table->bigInteger('id_school')->unsigned();
         });

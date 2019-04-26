@@ -21,6 +21,10 @@ Route::get('/iniciar', function () {
 
 Route::get('/registrarme', 'ShowSchoolsSignUpController');
 
+Route::get('/principal', function () {
+    return view('main');
+});
+
 Route::resources([
     'escuelas' => 'SchoolController'
 ]);

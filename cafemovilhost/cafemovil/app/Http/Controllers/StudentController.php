@@ -42,6 +42,14 @@ class StudentController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
+        $user = new User;
+        $user->email = $request->input('email');
+        $user->password = Hash::make($request->input('password'));
+        $user->status = false;
+        $user->id_user_type = 3;
+
+        $user->save();
+
         // add student
         $student = new Student;
         $student->id_at_school = $request->input('id_at_school');
@@ -54,22 +62,11 @@ class StudentController extends Controller
         $student->id_school = $request->input('school');
 
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $name = time().'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('/profile-images');
-            $image->move($destinationPath, $name);
-            $student->image_name = $name;
+            $path = $request->file('image')->store('profile-images');
+            $student->image_url = $path;
         }
 
         $student->save();
-        
-        $user = new User;
-        $user->email = $request->input('email');
-        $user->password = Hash::make($request->input('password'));
-        $user->status = false;
-        $user->id_user_type = 3;
-
-        $user->save();
 
         return redirect('/iniciar');
     }
