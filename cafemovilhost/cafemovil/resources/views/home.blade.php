@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">General</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in! <br/>
+                    ¡Has iniciado sesión! <br/>
 
                     @foreach ($activities as $activity)
                         <br/><a href="{{$activity[0]}}">{{$activity[1]}}</a>
