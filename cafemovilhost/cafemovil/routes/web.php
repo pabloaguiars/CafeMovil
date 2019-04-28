@@ -22,3 +22,13 @@ Route::get('/nav-bar', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('sellers', 'SellerController');
+
+Route::resource('students', 'StudentController');
+
+Route::resource('usersown', 'UserOwnController');
+
+Route::get('/#', function () {
+    return view('home');
+})->name('#');

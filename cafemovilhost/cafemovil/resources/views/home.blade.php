@@ -17,7 +17,7 @@
                     ¡Has iniciado sesión! <br/>
 
                     @foreach ($activities as $activity)
-                        <br/><a href="{{$activity[0]}}">{{$activity[1]}}</a>
+                        <br/><a href="{{ route($activity[0]) }}">{{$activity[1]}}</a>
                     @endforeach
                 </div>
             </div>

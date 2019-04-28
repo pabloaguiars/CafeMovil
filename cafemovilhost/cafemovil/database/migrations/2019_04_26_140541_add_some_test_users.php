@@ -22,7 +22,7 @@ class AddSomeTestUsers extends Migration
                 'father_last_name' => 'Aguiar',
                 'mother_last_name' => 'Solis',
                 'curp' => 'AUSP980730HBCGLB00',
-                'email' => 'paguiar_student@uwu.com',
+                'email' => 'student@uwu.com',
                 'phone' => '6644437802',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -32,9 +32,8 @@ class AddSomeTestUsers extends Migration
 
         DB::table('users')->insert(
             array(
-                'email' => 'paguiar_student@uwu.com',
+                'email' => 'student@uwu.com',
                 'password' => Hash::make('password'),
-                'status' => false,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
                 'id_user_type' => 3
@@ -48,7 +47,7 @@ class AddSomeTestUsers extends Migration
                 'father_last_name' => 'Aguiar',
                 'mother_last_name' => 'Solis',
                 'curp' => 'AUSP980730HBCGLB00',
-                'email' => 'paguiar_seller@uwu.com',
+                'email' => 'seller@uwu.com',
                 'phone' => '6644437802',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -58,9 +57,8 @@ class AddSomeTestUsers extends Migration
 
         DB::table('users')->insert(
             array(
-                'email' => 'paguiar_seller@uwu.com',
+                'email' => 'seller@uwu.com',
                 'password' => Hash::make('password'),
-                'status' => false,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
                 'id_user_type' => 2
@@ -74,7 +72,7 @@ class AddSomeTestUsers extends Migration
                 'father_last_name' => 'Aguiar',
                 'mother_last_name' => 'Solis',
                 'curp' => 'AUSP980730HBCGLB00',
-                'email' => 'paguiar_school_administrator@uwu.com',
+                'email' => 'school_administrator@uwu.com',
                 'phone' => '6644437802',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -84,9 +82,8 @@ class AddSomeTestUsers extends Migration
 
         DB::table('users')->insert(
             array(
-                'email' => 'paguiar_school_administrator@uwu.com',
+                'email' => 'school_administrator@uwu.com',
                 'password' => Hash::make('password'),
-                'status' => false,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
                 'id_user_type' => 1

@@ -32,7 +32,7 @@ class HomeController extends Controller
         if($user->id_user_type === 1){
             array_push($activities,array("#","Reporte/Ventas"));
             array_push($activities,array("#","Reporte/Servicio"));
-            array_push($activities,array("#","Vendedores/Alta"));
+            array_push($activities,array("sellers.create","Vendedores/Alta"));
             array_push($activities,array("#","Vendedores/Baja"));
             array_push($activities,array("#","Vendedores/Modificación"));
         } else if($user->id_user_type === 2){
