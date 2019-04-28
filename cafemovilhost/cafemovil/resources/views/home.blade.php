@@ -14,7 +14,11 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    You are logged in! <br/>
+
+                    @foreach ($activities as $activity)
+                        <br/><a href="{{$activity[0]}}">{{$activity[1]}}</a>
+                    @endforeach
                 </div>
             </div>
         </div>
