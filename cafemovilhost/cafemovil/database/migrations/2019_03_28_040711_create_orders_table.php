@@ -19,9 +19,9 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('id_client')->unsigned();
             $table->bigInteger('id_seller')->unsigned();
-            $table->timestamp('ordered_at')->nullable($value = false);
-            $table->timestamp('delivered_at');
-            $table->timestamp('updated_at');
+            $table->boolean('delivered');
+            $table->timestamps();
+            $table->timestamp('delivered_at')->nullable();
             
         });
 

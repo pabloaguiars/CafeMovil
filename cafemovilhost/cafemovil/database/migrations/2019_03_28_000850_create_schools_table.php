@@ -17,10 +17,10 @@ class CreateSchoolsTable extends Migration
             $table->engine = 'InnoDB';
             //columns
             $table->bigIncrements('id');
-            $table->string('name')->nullable($value = false);
-            $table->string('alias')->nullable();
-            $table->string('campus')->nullable();
-            $table->string('address')->nullable($value = false);
+            $table->string('name');
+            $table->string('alias');
+            $table->string('campus');
+            $table->string('address');
             $table->string('phone')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

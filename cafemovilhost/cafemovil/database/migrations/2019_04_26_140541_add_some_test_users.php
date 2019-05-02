@@ -34,6 +34,7 @@ class AddSomeTestUsers extends Migration
             array(
                 'email' => 'student@uwu.com',
                 'password' => Hash::make('password'),
+                'status' => true,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
                 'id_user_type' => 3
@@ -59,6 +60,7 @@ class AddSomeTestUsers extends Migration
             array(
                 'email' => 'seller@uwu.com',
                 'password' => Hash::make('password'),
+                'status' => true,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
                 'id_user_type' => 2
@@ -84,6 +86,7 @@ class AddSomeTestUsers extends Migration
             array(
                 'email' => 'school_administrator@uwu.com',
                 'password' => Hash::make('password'),
+                'status' => true,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
                 'id_user_type' => 1

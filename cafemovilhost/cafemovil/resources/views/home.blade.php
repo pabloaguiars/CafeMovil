@@ -14,10 +14,18 @@
                         </div>
                     @endif
 
-                    ¡Has iniciado sesión! <br/>
+                    @if (session('failure'))
+                        <div class="alert alert-danger" role="alert">
+                            {{ session('failure') }}
+                        </div>
+                    @endif
 
                     @foreach ($activities as $activity)
-                        <br/><a href="{{ route($activity[0]) }}">{{$activity[1]}}</a>
+                        @if ($activity[0] == 0)
+                            <br/><a href="{{ route($activity[1]) }}">{{$activity[2]}}</a>
+                        @elseif ($activity[0] == 1)
+                            <br/><a href="{{ route($activity[1],['action' => $activity[3]]) }}">{{$activity[2]}}</a>
+                        @endif
                     @endforeach
                 </div>
             </div>

@@ -17,10 +17,10 @@ class CreateProductsTable extends Migration
             $table->engine = 'InnoDB';
             //columns
             $table->bigIncrements('id');
-            $table->string('name')->nullable($value = false);
-            $table->string('unit_price')->nullable($value = false);
-            $table->string('description')->nullable($value = false);
-            $table->string('imag_url')->nullable($value = false);
+            $table->string('name');
+            $table->string('unit_price');
+            $table->string('description');
+            $table->string('imag_url');
             $table->timestamps();
             $table->bigInteger('id_seller')->unsigned();
         });

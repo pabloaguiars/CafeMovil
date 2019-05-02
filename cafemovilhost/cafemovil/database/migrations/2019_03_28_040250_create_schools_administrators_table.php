@@ -19,14 +19,14 @@ class CreateSchoolsAdministratorsTable extends Migration
             //columns
             $table->bigIncrements('id');
             $table->string('id_at_school')->unique();
-            $table->string('name')->nullable($value = false);
-            $table->string('father_last_name')->nullable($value = false);
-            $table->string('mother_last_name')->nullable($value = false);
-            $table->string('curp')->unique()->nullable($value = false);
-            $table->string('email')->unique()->nullable($value = false);
-            $table->string('phone')->unique()->nullable($value = false);
-            $table->timestamp('email_verified_at')->nullable($value = true);
-            $table->string('image_url')->nullable($value = false)->default('profile-images/user-default.png');
+            $table->string('name');
+            $table->string('father_last_name');
+            $table->string('mother_last_name');
+            $table->string('curp')->unique();
+            $table->string('email')->unique();
+            $table->string('phone')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('image_url')->default('profile-images/user-default.png');
             $table->timestamps();
             $table->bigInteger('id_school')->unsigned();
         });

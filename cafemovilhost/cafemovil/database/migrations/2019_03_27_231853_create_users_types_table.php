@@ -17,7 +17,7 @@ class CreateUsersTypesTable extends Migration
             $table->engine = 'InnoDB';
             //columns
             $table->bigIncrements('id');
-            $table->string('description')->nullable($value = false);
+            $table->string('description');
             $table->timestamps();
         });
     }

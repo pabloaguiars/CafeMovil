@@ -11,6 +11,10 @@
 |
 */
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,16 +23,18 @@ Route::get('/nav-bar', function () {
     return view('navigation-bar');
 });
 
-Auth::routes();
+Route::get('/#', function () {
+    return view('home');
+})->name('#');
 
-Route::get('/home', 'HomeController@index')->name('home');
+//sellers
+Route::get('/sellers/choose-by-email', function () {
+    return view('school-administrator.seller-choose-by-email');
+})->name('seller-choose-by-email');
 
+//resources
 Route::resource('sellers', 'SellerController');
 
 Route::resource('students', 'StudentController');
 
 Route::resource('usersown', 'UserOwnController');
-
-Route::get('/#', function () {
-    return view('home');
-})->name('#');

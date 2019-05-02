@@ -177,6 +177,6 @@ return [
         'time'                  => 'hora',
         'subject'               => 'asunto',
         'message'               => 'mensaje',
-        'curp'                  => 'curp',
+        'curp'                  => 'CURP',
     ],
 ];
