@@ -38,3 +38,5 @@ Route::resource('sellers', 'SellerController');
 Route::resource('students', 'StudentController');
 
 Route::resource('usersown', 'UserOwnController');
+
+Route::resource('products', 'ProductController');
