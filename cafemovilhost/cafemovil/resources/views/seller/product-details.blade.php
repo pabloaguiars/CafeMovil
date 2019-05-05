@@ -5,64 +5,47 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Detalles del vendedor') }}</div>
+                <div class="card-header">{{ __('Detalles del producto') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="" id="form" enctype="multipart/form-data">
                         @csrf
+
+                        <div class="form-group row">
+                            <label for="id_at_store" class="col-md-4 col-form-label text-md-right">{{ __('Número de control en la tienda: ') }}</label>
+
+                            <div class="col-md-6">
+                                <label for="id_at_store" class="col-form-label">{{ $id_at_store }}</label>
+                            </div>
+                        </div>
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre: ') }}</label>
 
                             <div class="col-md-6">
-                                <label for="name" class="col-form-label">{{ $name.' '.$father_last_name.' '.$mother_last_name }}</label>
+                                <label for="name" class="col-form-label">{{ $name }}</label>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="curp" class="col-md-4 col-form-label text-md-right">{{ __('CURP: ') }}</label>
+                            <label for="unit_price" class="col-md-4 col-form-label text-md-right">{{ __('Precio unitario [MXN]: ') }}</label>
 
                             <div class="col-md-6">
-                                <label for="curp" class="col-form-label">{{ $curp }}</label>
+                                <label for="unit_price" class="col-form-label">${{ $unit_price }} MXN</label>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Teléfono personal: ') }}</label>
+                            <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Descripción ') }}</label>
 
                             <div class="col-md-6">
-                                <label for="phone" class="col-form-label">{{ $phone }}</label>
+                                <label for="description" class="col-form-label">{{ $description }}</label>
 
                             </div>
                         </div>
 
-                        
                         <div class="form-group row">
-                            <label for="id_school" class="col-md-4 col-form-label text-md-right">{{ __('Escuela: ') }}</label>
-
-                            <div class="col-md-6">
-                                <label for="id_school" class="col-form-label">{{ $school }}</label>
-                                
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="id_at_school" class="col-md-4 col-form-label text-md-right">{{ __('Número de control escolar: ') }}</label>
-
-                            <div class="col-md-6">
-                                <label for="id_at_school" class="col-form-label">{{ $id_at_school }}</label>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Correo electrónico: ') }}</label>
-
-                            <div class="col-md-6">
-                                <label for="email" class="col-form-label">{{ $email }}</label>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="status" class="col-md-4 col-form-label text-md-right">{{ __('Estatus del usuario: ') }}</label>
+                            <label for="status" class="col-md-4 col-form-label text-md-right">{{ __('Estatus del producto: ') }}</label>
 
                             <div class="col-md-6">
                                 <label for="status" class="col-form-label">
@@ -97,7 +80,7 @@
 
                         <div class="btn-group">
                             <input id = "_method" name="_method" type="hidden" value="">
-                            <input id = "email" name="email" type="hidden" value="{{ $email }}">
+                            <input id = "id_at_store" name="id_at_store" type="hidden" value="{{ $id_at_store }}">
                             <input id = "update_type" name="update_type" type="hidden" value="enable">
 
                             @if($status == 1) 
@@ -131,19 +114,19 @@
                                         var _method = '';
                                         if (x == 1) {
                                             //show
-                                            _url = '/sellers/' + document.getElementById('email').value;
+                                            _url = '/products/' + document.getElementById('id_at_store').value;
                                             _method = 'GET';
                                         } else if (x == 2) {
                                             //update for enable
-                                            _url = '/sellers/' + document.getElementById('email').value;
+                                            _url = '/products/' + document.getElementById('id_at_store').value;
                                             _method = 'PUT';
                                         } else if (x == 3) {
                                             //destroy
-                                            _url = '/sellers/' + document.getElementById('email').value;
+                                            _url = '/products/' + document.getElementById('id_at_store').value;
                                             _method = 'DELETE';
                                         } else if (x == 4) {
                                             //edit
-                                            _url = '/sellers/' + document.getElementById('email').value + '/edit';
+                                            _url = '/products/' + document.getElementById('id_at_store').value + '/edit';
                                             _method = 'GET';
                                         }
 

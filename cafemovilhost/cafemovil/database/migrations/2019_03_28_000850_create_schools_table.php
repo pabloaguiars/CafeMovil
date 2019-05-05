@@ -23,7 +23,6 @@ class CreateSchoolsTable extends Migration
             $table->string('address');
             $table->string('phone')->unique();
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
         });
     }

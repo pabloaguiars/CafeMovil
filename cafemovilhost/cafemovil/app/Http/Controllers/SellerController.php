@@ -114,8 +114,8 @@ class SellerController extends Controller
                 'id_at_school' => $seller->id_at_school,
                 'email' => $seller->email,
                 'status' => $user->status,
-                'created' => $seller->created_at,
-                'updated' => $seller->updated_at
+                'created_at' => $seller->created_at,
+                'updated_at' => $seller->updated_at
             ]);
         } else {
             return redirect()->back()->with('failure', '¡Vendedor '.$email.' no registrado!')->withInput();
@@ -238,7 +238,5 @@ class SellerController extends Controller
         } else {
             return redirect()->back()->with('failure', '¡Vendedor '.$email.' no registrado!')->withInput();
         }
-        
-        
     }
 }

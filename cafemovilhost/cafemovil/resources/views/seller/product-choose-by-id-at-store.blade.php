@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">¡Ingresa el correo del vendedor!</div>
+                <div class="card-header">¡Ingresa el número de control del producto en tu tienda!</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -25,12 +25,12 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Correo electrónico') }}</label>
+                            <label for="id_at_store" class="col-md-4 col-form-label text-md-right">{{ __('Número de control en la tienda') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="id_at_store" type="id_at_store" class="form-control @error('id_at_store') is-invalid @enderror" name="id_at_store" value="{{ old('id_at_store') }}" required autocomplete="id_at_store">
 
-                                @error('email')
+                                @error('id_at_store')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -81,19 +81,19 @@
                                         var _method = '';
                                         if (x == 1) {
                                             //show
-                                            _url = '/sellers/' + document.getElementById('email').value;
+                                            _url = '/products/' + document.getElementById('id_at_store').value;
                                             _method = 'GET';
                                         } else if (x == 2) {
                                             //update for enable
-                                            _url = '/sellers/' + document.getElementById('email').value;
+                                            _url = '/products/' + document.getElementById('id_at_store').value;
                                             _method = 'PUT';
                                         } else if (x == 3) {
                                             //destroy
-                                            _url = '/sellers/' + document.getElementById('email').value;
+                                            _url = '/products/' + document.getElementById('id_at_store').value;
                                             _method = 'DELETE';
                                         } else if (x == 4) {
                                             //edit
-                                            _url = '/sellers/' + document.getElementById('email').value + '/edit';
+                                            _url = '/products/' + document.getElementById('id_at_store').value + '/edit';
                                             _method = 'GET';
                                         }
 

@@ -23,8 +23,8 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->string('image_url');
             $table->boolean('status');
-            $table->timestamps();
             $table->bigInteger('id_seller')->unsigned();
+            $table->timestamps();
         });
 
         Schema::table('products', function (Blueprint $table) {

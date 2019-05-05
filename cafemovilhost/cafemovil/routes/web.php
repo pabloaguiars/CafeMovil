@@ -32,6 +32,11 @@ Route::get('/sellers/choose-by-email', function () {
     return view('school-administrator.seller-choose-by-email');
 })->name('seller-choose-by-email');
 
+//products
+Route::get('/products/choose-by-id-at-store', function () {
+    return view('seller.product-choose-by-id-at-store');
+})->name('product-choose-by-id-at-store');
+
 //resources
 Route::resource('sellers', 'SellerController');
 

@@ -46,12 +46,19 @@ class HomeController extends Controller
             array_push($activities,array('0','#','Reporte/Ventas'));
             array_push($activities,array('0','#','Reporte/Servicio'));
             array_push($activities,array('0','#','Pedidos/Consulta'));
-            array_push($activities,array('0','products.create','Menú/Alta'));
-            array_push($activities,array('0','#','Menú/Baja'));
-            array_push($activities,array('0','#','Menú/Modificación'));
+            array_push($activities,array('0','products.create','Productos/Alta'));
+            array_push($activities,array('0','products.index','Productos/Lista'));
+            #show product by id at store
+            array_push($activities,array('1','product-choose-by-id-at-store','Productos/Ver','1'));
+            #enable product by id at store
+            array_push($activities,array('1','product-choose-by-id-at-store','Productos/Habilitar','2'));
+            #disable product by id at store
+            array_push($activities,array('1','product-choose-by-id-at-store','Productos/Baja','3'));
+            #edit product by id at store
+            array_push($activities,array('1','product-choose-by-id-at-store','Productos/Modificación','4'));
         }  else if($user->id_user_type === 3){
             array_push($activities,array('0','#','Pedidos/Alta'));
-            array_push($activities,array('0','#','Menú/Consulta'));
+            array_push($activities,array('0','#','Productos/Consulta'));
             array_push($activities,array('0','#','Estadística/Más barato'));
             array_push($activities,array('0','#','Estadística/Más vendido'));
         }
