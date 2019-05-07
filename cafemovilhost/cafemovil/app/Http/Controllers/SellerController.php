@@ -10,6 +10,7 @@ use App\School;
 use App\Seller;
 use App\UserOwn;
 use App\User;
+use Carbon\Carbon;
 
 class SellerController extends Controller
 {
@@ -32,7 +33,7 @@ class SellerController extends Controller
     public function index()
     {
         //
-        return view('school-administrator.sellers-list',['sellers' => Seller::all()]);
+        return view('seller.sellers-list',['sellers' => Seller::all()]);
     }
 
     /**
@@ -43,7 +44,7 @@ class SellerController extends Controller
     public function create()
     {
         //
-        return view('school-administrator.seller-register',['schools' => School::all()]);
+        return view('seller.seller-register',['schools' => School::all()]);
     }
 
     /**
@@ -69,7 +70,8 @@ class SellerController extends Controller
 
             $image = $request['image'];
             if ($image->isValid('image')) {
-                $path = $image->store('profile-images');
+                $path = Storage::putFile('public/profile-images', $image, 'public');
+                $path = substr($path,7);
                 $seller->image_url = $path;
             }
 
@@ -104,7 +106,7 @@ class SellerController extends Controller
             $user = DB::table('users')->select()->where('email',$seller->email)->first();
             $school = DB::table('schools')->select()->where('id',$seller->id_school)->first();
             #show seller
-            return view('school-administrator.seller-details',[
+            return view('seller.seller-details',[
                 'name' => $seller->name,
                 'father_last_name' => $seller->father_last_name,
                 'mother_last_name' => $seller->father_last_name,
@@ -135,7 +137,7 @@ class SellerController extends Controller
         if($seller){
             $user = DB::table('users')->select()->where('email',$seller->email)->first();
 
-            return view('school-administrator.seller-edit',[
+            return view('seller.seller-edit',[
                 'name' => $seller->name,
                 'father_last_name' => $seller->father_last_name,
                 'mother_last_name' => $seller->father_last_name,
@@ -168,7 +170,8 @@ class SellerController extends Controller
             if($seller){
                 $user = DB::table('users')->select()->where('email',$seller->email)->first();
                 if ($user->status == false) {
-                    DB::table('users')->where('id', $user->id)->update(['status' => true]);
+                    DB::table('users')->where('id', $user->id)->update(['status' => true,'updated_at' => Carbon::now()]);
+                    
                     return redirect()->route('home')->with('status', '¡Vendedor '.$user->email.' habilitado!');
                 } else {
                     return redirect()->back()->with('status', '¡Vendedor '.$user->email.' ya estaba habilitado!');
@@ -185,12 +188,13 @@ class SellerController extends Controller
 
                 if ($request->hasFile('image')) {
                     if($seller->image_url != 'profile-images/user-default.png'){
-                        Storage::delete($seller->image_url);
+                        Storage::delete('public/'.$seller->image_url);
                     } 
                     $image = $request['image'];
-                    $path = $image->store('profile-images');
+                    $path = Storage::putFile('public/profile-images', $image, 'public');
+                    $path = substr($path,7);
                 } else {
-                    $path = 'profile-images/user-default.png';
+                    $path = $seller->image_url;
                 }
 
                 DB::table('sellers')->where('id', $seller->id)->update([
@@ -201,7 +205,8 @@ class SellerController extends Controller
                     'image_url' => $path,
                     'curp' => $request['curp'],
                     'id_at_school' => $request['id_at_school'],
-                    'email' => $request['email']
+                    'email' => $request['email'],
+                    'updated_at' => Carbon::now()
                 ]);
 
                 DB::table('users')->where('id', $user->id)->update([
@@ -230,7 +235,7 @@ class SellerController extends Controller
         if($seller){
             $user = DB::table('users')->select()->where('email',$seller->email)->first();
             if ($user->status == true) {
-                DB::table('users')->where('id', $user->id)->update(['status' => false]);
+                DB::table('users')->where('id', $user->id)->update(['status' => false,'updated_at' => Carbon::now()]);
                 return redirect()->route('home')->with('status', '¡Vendedor '.$user->email.' deshabilitado!');
             } else {
                 return redirect()->back()->with('status', '¡Vendedor '.$user->email.' ya estaba deshabilitado!')->withInput();

@@ -20,16 +20,19 @@ class CreateProductsTable extends Migration
             $table->string('id_at_store');
             $table->string('name');
             $table->string('unit_price');
+            $table->integer('at_inventory');
             $table->string('description');
             $table->string('image_url');
             $table->boolean('status');
             $table->bigInteger('id_seller')->unsigned();
+            $table->bigInteger('id_product_type')->unsigned();
             $table->timestamps();
         });
 
         Schema::table('products', function (Blueprint $table) {
             //add foreign keys
             $table->foreign('id_seller')->references('id')->on('sellers');
+            $table->foreign('id_product_type')->references('id')->on('products_types');
             $table->unique(['id_at_store','id_seller']);
         });
     }

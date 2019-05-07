@@ -66,6 +66,20 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="at_inventory" class="col-md-4 col-form-label text-md-right">{{ __('Unidades en inventario') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="at_inventory" type="number" class="form-control @error('at_inventory') is-invalid @enderror" name="at_inventory" value="{{ old('at_inventory', $at_inventory) }}" autofocus min="0" step="1" required>
+
+                                @error('at_inventory')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Descripción') }}</label>
 
                             <div class="col-md-6">
@@ -85,6 +99,29 @@
                             <div class="col-md-6">
                             <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ old('image') }}" autocomplete="name" autofocus>
                                 @error('image')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="id_product_type" class="col-md-4 col-form-label text-md-right">{{ __('Tipo de producto') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="id_product_type" class="form-control @error('id_product_type') is-invalid @enderror" name="id_product_type" required autocomplete="id_product_type" autofocus>
+                                
+                                @foreach ($products_types as $product_type)
+                                    @if($product_type->id == $id_product_type_current)
+                                        <option value="{{$id_product_type_current}}" selected>{{$product_type->description}}</option>
+                                    @else
+                                        <option value="{{$product_type->id}}">{{$product_type->description}}</option>
+                                    @endif
+                                @endforeach
+
+                                </select>
+                                @error('not_in')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

@@ -36,11 +36,27 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="at_inventory" class="col-md-4 col-form-label text-md-right">{{ __('Unidades en inventario: ') }}</label>
+
+                            <div class="col-md-6">
+                                <label for="at_inventory" class="col-form-label">{{ $at_inventory }}</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Descripción ') }}</label>
 
                             <div class="col-md-6">
                                 <label for="description" class="col-form-label">{{ $description }}</label>
 
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="product_type" class="col-md-4 col-form-label text-md-right">{{ __('Tipo de producto: ') }}</label>
+
+                            <div class="col-md-6">
+                                <label for="product_type" class="col-form-label">{{ $product_type }}</label>
                             </div>
                         </div>
 
