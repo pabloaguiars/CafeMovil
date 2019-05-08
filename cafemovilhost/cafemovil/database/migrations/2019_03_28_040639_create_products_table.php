@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->string('id_at_store');
             $table->string('name');
-            $table->string('unit_price');
+            $table->decimal('unit_price',13,4);
             $table->integer('at_inventory');
             $table->string('description');
             $table->string('image_url');
@@ -31,7 +31,6 @@ class CreateProductsTable extends Migration
 
         Schema::table('products', function (Blueprint $table) {
             //add foreign keys
-            $table->foreign('id_seller')->references('id')->on('sellers');
             $table->foreign('id_product_type')->references('id')->on('products_types');
             $table->unique(['id_at_store','id_seller']);
         });

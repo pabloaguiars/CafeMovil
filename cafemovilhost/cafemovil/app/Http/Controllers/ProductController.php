@@ -44,7 +44,7 @@ class ProductController extends Controller
             return view('product.products-list',['user_type' => $user->id_user_type, 'products' => Product::all()->where('id_seller',$seller->id)]);
         } else if ($user->id_user_type == 3) {
             //student
-            return view('product.products-list',['user_type' => $user->id_user_type,'products' => Product::all()->where('status',true)]);
+            return view('product.products-list',['user_type' => $user->id_user_type,'products' => Product::all()->where('status',true)->where('at_inventory','>',0)]);
         } else {
             return redirect()->route('home')->with('failure', '¡Opción no válida!');
         }
@@ -73,7 +73,7 @@ class ProductController extends Controller
         $data = $request->validate([
             'id_at_store' => ['required', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
-            'unit_price' => ['required', 'numeric', 'min:0', 'max:255', 'regex:/^[0-9]+\.[0-9]{2}$/'],
+            'unit_price' => ['required', 'numeric', 'min:0', 'max:255', 'regex:/^[0-9]+\.[0-9]{0,4}$/'],
             'description' => ['required', 'string', 'max:140'],
             'image' => ['required','mimes:jpeg,jpg,png','required','max:10000'],
             'at_inventory' => ['required','int','min:0','regex:/^[0-9]+$/'],
@@ -119,8 +119,8 @@ class ProductController extends Controller
         $email = Auth::user()->email;
         $seller = DB::table('sellers')->select()->where('email',$email)->first();
         $product = DB::table('products')->select()->where('id_seller',$seller->id)->where('id_at_store',$id_at_store)->first();
-        $product_type = DB::table('products_types')->select()->where('id',$product->id_product_type)->first();
         if($product){
+            $product_type = DB::table('products_types')->select()->where('id',$product->id_product_type)->first();
             return view('product.product-details',[
                 'id_at_store' => $product->id_at_store,
                 'name' => $product->name,
@@ -195,8 +195,7 @@ class ProductController extends Controller
             $data = $request->validate([
                 'id_at_store' => ['required', 'string', 'max:255'],
                 'name' => ['required', 'string', 'max:255'],
-                'unit_price' => ['required', 'numeric', 'min:0', 'max:255', 'regex:/^[0-9]+[\.|,][0-9]{1,2}$/'],
-                'description' => ['required', 'string', 'max:140'],
+                'unit_price' => ['required', 'numeric', 'min:0', 'max:255', 'regex:/^[0-9]+\.[0-9]{0,4}$/'],                'description' => ['required', 'string', 'max:140'],
                 'image' => ['mimes:jpeg,jpg,png','max:10000'],
                 'at_inventory' => ['required','int','min:0','regex:/^[0-9]+$/'],
                 'id_product_type' => ['required','int']

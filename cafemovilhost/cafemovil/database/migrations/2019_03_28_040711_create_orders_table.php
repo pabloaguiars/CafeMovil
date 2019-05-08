@@ -18,9 +18,10 @@ class CreateOrdersTable extends Migration
             //columns
             $table->bigIncrements('id');
             $table->bigInteger('id_client')->unsigned();
-            $table->bigInteger('id_seller')->unsigned();
+            $table->decimal('total',13,4)->unsigned();
             $table->timestamps();
-            $table->boolean('delivered');
+            $table->boolean('status');
+            $table->timestamp('deliver_at');
             $table->timestamp('delivered_at')->nullable();
             
         });
@@ -28,7 +29,6 @@ class CreateOrdersTable extends Migration
         Schema::table('orders', function (Blueprint $table) {
             //add foreign keys
             $table->foreign('id_client')->references('id')->on('students');
-            $table->foreign('id_seller')->references('id')->on('sellers');
         });
     }
 

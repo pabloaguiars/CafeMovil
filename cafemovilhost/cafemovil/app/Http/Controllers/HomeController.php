@@ -45,7 +45,7 @@ class HomeController extends Controller
         } else if($user->id_user_type === 2){
             array_push($activities,array('0','#','Reporte/Ventas'));
             array_push($activities,array('0','#','Reporte/Servicio'));
-            array_push($activities,array('0','orders.index','Pedidos/Consulta'));
+            array_push($activities,array('0','orders.index','Pedidos/Lista'));
             array_push($activities,array('0','products.create','Productos/Alta'));
             array_push($activities,array('0','products.index','Productos/Lista'));
             #show product by id at store
@@ -57,7 +57,7 @@ class HomeController extends Controller
             #edit product by id at store
             array_push($activities,array('1','product-choose-by-id-at-store','Productos/Modificación','4'));
         }  else if($user->id_user_type === 3){
-            array_push($activities,array('0','#','Pedidos/Alta'));
+            array_push($activities,array('0','products.index','Pedidos/Alta'));
             array_push($activities,array('0','products.index','Productos/Consulta'));
             array_push($activities,array('0','#','Estadística/Más barato'));
             array_push($activities,array('0','#','Estadística/Más vendido'));

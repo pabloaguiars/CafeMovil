@@ -37,6 +37,12 @@ Route::get('/products/choose-by-id-at-store', function () {
     return view('product.product-choose-by-id-at-store');
 })->name('product-choose-by-id-at-store');
 
+//confirm-order
+Route::post('/products/confirm-order', 'OrderController@confirm' )->name('confirm-order');
+
+//Report
+Route::get('/report', "ReportController@index");
+
 //resources
 Route::resource('sellers', 'SellerController');
 

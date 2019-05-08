@@ -19,6 +19,8 @@ class CreateOrdersDetailsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('id_order')->unsigned();
             $table->bigInteger('id_product')->unsigned();
+            $table->bigInteger('id_seller')->unsigned();
+            $table->integer('quantity')->unsigned();
             $table->index(['id', 'id_order','id_product']);
             $table->timestamps();
         });

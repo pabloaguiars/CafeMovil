@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "443c3d8dfdf81c12d41d608f0d36d384",
+    "content-hash": "0a4535251a1687c1f51f2c6b2d9d8762",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -595,6 +595,54 @@
             ],
             "description": "Highlight PHP code in terminal",
             "time": "2018-09-29T18:48:56+00:00"
+        },
+        {
+            "name": "koolphp/koolreport",
+            "version": "3.25.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/koolphp/koolreport.git",
+                "reference": "1ffa6c481535eac59df0852a6eeaa9ff87170e98"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/koolphp/koolreport/zipball/1ffa6c481535eac59df0852a6eeaa9ff87170e98",
+                "reference": "1ffa6c481535eac59df0852a6eeaa9ff87170e98",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "codeception/codeception": "^2.4",
+                "squizlabs/php_codesniffer": "^3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "autoload.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KoolPHP Inc",
+                    "homepage": "https://www.koolphp.net"
+                }
+            ],
+            "description": "An Open Source PHP Reporting Framework for easier and faster report delivery.",
+            "homepage": "https://www.koolreport.com",
+            "keywords": [
+                "PHP Reporting Framework",
+                "PHP Reporting Tools",
+                "charts and graphs",
+                "data processing",
+                "data visualization"
+            ],
+            "time": "2019-02-15T07:54:19+00:00"
         },
         {
             "name": "laravel/framework",

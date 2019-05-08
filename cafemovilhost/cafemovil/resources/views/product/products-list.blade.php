@@ -39,11 +39,13 @@
                                         <b>Número de control en la tienda:</b> {{ $product->id_at_store }}
                                         <b>Nombre del producto:</b> {{ $product->name }} <br>
                                         <b>Precio unitario:</b> ${{ $product->unit_price }} MXN.
+                                        <b>En inventario:</b> {{ $product->at_inventory }} 
                                         <b>Estatus:</b> @if($product->status == 1) 
                                                             {{ __('Habilitado') }}
                                                         @else
                                                             {{ __('Inhabilitado') }}
                                                         @endif
+                                        
                                     </label>
                                 </div>
                             @endforeach
@@ -74,14 +76,14 @@
 
                                 <div class="col-md-4 offset-md-1">
                                     
-                                    <button type="submit" class="btn btn-warning" onclick="whatSeller(event,4)">
+                                    <button type="submit" class="btn btn-warning" onclick="whatProduct(event,4)">
                                         {{ __('Editar') }}
                                     </button>
                                 </div>
 
 
                                 <script>
-                                        function whatSeller(e,x) {
+                                        function whatProduct(e,x) {
                                             var _url = '';
                                             var _method = '';
                                             if (x == 1) {
@@ -115,7 +117,7 @@
                         </form>
                     </div>
                 @elseif($user_type == 3)
-                    <div class="card-header">Selecciona los productos y ordena</div>
+                    <div class="card-header">¡Selecciona los productos y ordena!</div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -131,45 +133,30 @@
                             </div>
                         @endif
 
-                        <form method="POST" action="" id="form"  enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('confirm-order') }}" id="form"  enctype="multipart/form-data">
                             @csrf
 
                             <div class="btn-group">
-                                <input id = "_method" name="_method" type="hidden" value="">
                                 <div class="col-md-6">
                                     
-                                    <button type="submit" class="btn btn-primary" onclick="whatSeller(event)">
-                                        {{ __('Ordenar') }}
+                                    <button type="submit" class="btn btn-success" >
+                                        {{ __('Completar orden') }}
                                     </button>
                                 </div>
 
-                                <script>
-                                        function whatSeller(e) {
-                                            var _url = '';
-                                            var _method = '';
-
-                                            var frm = document.getElementById('form') || null;
-                                            if(frm) {
-                                                
-                                                document.getElementById('_method').value = _method;
-                                                frm.action = _url; 
-                                                //e.preventDefault();
-                                            }
-                                        }
-                                </script>
                             </div>
                             <br/>  <br/>
                             @foreach ($products as $product)
                                 <div class="form-group row">
                                     <div class="col-md-1">
-                                        <input id="{{ $product->id_at_store }}" type="checkbox" class="form-control @error('required') is-invalid @enderror" name="products" value="{{ $product->id_at_store }}">
-                                        @error('required')
+                                        <input id="{{ $product->id }}" type="checkbox" class="form-control @error('$product->id') is-invalid @enderror" name="products[]" value="{{ $product->id }}">
+                                        @error('$product->id')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
                                     </div>
-                                    <label for="{{ $product->id_at_store }}" class="col-form-label text-md-left">
+                                    <label for="{{ $product->id }}" class="col-form-label text-md-left">
                                         <img src="{{ asset('storage/'.$product->image_url) }}" alt="{{  $product->image_url }}" class="img-fluid img-thumbnail" style="" /> <br>
                                         <b>Nombre del producto:</b> {{ $product->name }}
                                         <b>Precio unitario:</b> ${{ $product->unit_price }} MXN.
