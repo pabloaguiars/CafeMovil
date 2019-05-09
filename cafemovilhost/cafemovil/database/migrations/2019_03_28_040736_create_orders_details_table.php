@@ -21,7 +21,10 @@ class CreateOrdersDetailsTable extends Migration
             $table->bigInteger('id_product')->unsigned();
             $table->bigInteger('id_seller')->unsigned();
             $table->integer('quantity')->unsigned();
+            $table->decimal('import',13,4)->unsigned();
+            $table->boolean('status')->unsigned();
             $table->index(['id', 'id_order','id_product']);
+            $table->timestamp('delivered_at')->nullable();
             $table->timestamps();
         });
 

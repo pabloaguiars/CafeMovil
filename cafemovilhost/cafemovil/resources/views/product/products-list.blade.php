@@ -55,21 +55,21 @@
                                 <input id = "update_type" name="update_type" type="hidden" value="enable">
                                 <div class="col-md-4 offset-md-1">
                                     
-                                    <button type="submit" class="btn btn-primary" onclick="whatSeller(event,1)">
+                                    <button type="submit" class="btn btn-primary" onclick="whatProduct(event,1)">
                                         {{ __('Detalles') }}
                                     </button>
                                 </div>
 
                                 <div class="col-md-4 offset-md-1">
                                     
-                                    <button type="submit" class="btn btn-danger" onclick="whatSeller(event,2)">
+                                    <button type="submit" class="btn btn-danger" onclick="whatProduct(event,2)">
                                         {{ __('Habilitar') }}
                                     </button>
                                 </div>
 
                                 <div class="col-md-4 offset-md-1">
                                     
-                                    <button type="submit" class="btn btn-danger" onclick="whatSeller(event,3)">
+                                    <button type="submit" class="btn btn-danger" onclick="whatProduct(event,3)">
                                         {{ __('Inhabilitar') }}
                                     </button>
                                 </div>
@@ -84,6 +84,7 @@
 
                                 <script>
                                         function whatProduct(e,x) {
+                                            //e.preventDefault();
                                             var _url = '';
                                             var _method = '';
                                             if (x == 1) {
@@ -103,13 +104,12 @@
                                                 _url = '/products/' + $('input[name=products]:checked').val() + '/edit';
                                                 _method = 'GET';
                                             }
-
+                                            
                                             var frm = document.getElementById('form') || null;
                                             if(frm) {
                                                 
                                                 document.getElementById('_method').value = _method;
                                                 frm.action = _url; 
-                                                //e.preventDefault();
                                             }
                                         }
                                     </script>

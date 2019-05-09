@@ -20,10 +20,9 @@ class CreateOrdersTable extends Migration
             $table->bigInteger('id_client')->unsigned();
             $table->decimal('total',13,4)->unsigned();
             $table->timestamps();
-            $table->boolean('status');
+            $table->integer('status')->unsigned();
             $table->timestamp('deliver_at');
             $table->timestamp('delivered_at')->nullable();
-            
         });
 
         Schema::table('orders', function (Blueprint $table) {

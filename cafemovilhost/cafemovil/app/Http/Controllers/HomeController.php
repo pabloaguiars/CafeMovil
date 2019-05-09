@@ -30,8 +30,8 @@ class HomeController extends Controller
         $activities = array();
         //array_push($activities,array('#','text'));
         if($user->id_user_type === 1){
-            array_push($activities,array('0','#','Reporte/Ventas'));
-            array_push($activities,array('0','#','Reporte/Servicio'));
+            array_push($activities,array('1','reports','Reporte/Ventas','1'));
+            array_push($activities,array('1','reports','Reporte/Servicio','2'));
             array_push($activities,array('0','sellers.create','Vendedores/Alta'));
             array_push($activities,array('0','sellers.index','Vendedores/Lista'));
             #show seller by email
@@ -43,8 +43,8 @@ class HomeController extends Controller
             #edit seller by email
             array_push($activities,array('1','seller-choose-by-email','Vendedores/Editar','4'));
         } else if($user->id_user_type === 2){
-            array_push($activities,array('0','#','Reporte/Ventas'));
-            array_push($activities,array('0','#','Reporte/Servicio'));
+            array_push($activities,array('1','reports','Reporte/Ventas','1'));
+            array_push($activities,array('1','reports','Reporte/Servicio','2'));
             array_push($activities,array('0','orders.index','Pedidos/Lista'));
             array_push($activities,array('0','products.create','Productos/Alta'));
             array_push($activities,array('0','products.index','Productos/Lista'));
@@ -59,8 +59,8 @@ class HomeController extends Controller
         }  else if($user->id_user_type === 3){
             array_push($activities,array('0','products.index','Pedidos/Alta'));
             array_push($activities,array('0','products.index','Productos/Consulta'));
-            array_push($activities,array('0','#','Estadística/Más barato'));
-            array_push($activities,array('0','#','Estadística/Más vendido'));
+            array_push($activities,array('1','reports','Estadística/Más vendido','1'));
+            array_push($activities,array('1','reports','Estadística/Relación precio-cantidad','2'));
         }
 
         return view('home',['activities' => $activities]);

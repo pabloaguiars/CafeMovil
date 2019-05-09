@@ -71,7 +71,7 @@
 
                             <div class="col-md-6">
                                 <label for="status" class="col-form-label">
-                                    @if($status == 1) 
+                                    @if($status == 2) 
                                         {{ __('Entregado') }}
                                     @else
                                         {{ __('Por entregar') }}
@@ -115,7 +115,7 @@
                             <input id = "id_order" name="id_order" type="hidden" value="{{ $id_order }}">
                             <input id = "update_type" name="update_type" type="hidden" value="deliver">
 
-                            @if($status == 1) 
+                            @if($status == 2) 
                             <div class="col-md-4 offset-md-5">
                                     
                                     <button type="submit" class="btn btn-danger" onclick="whatSeller(event,2)">

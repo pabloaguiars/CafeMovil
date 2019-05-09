@@ -42,7 +42,7 @@ class OrderController extends Controller
             $orders = collect([]);
             foreach ($orders_details as $order_detail) {
                 $order = DB::table('orders')->select()->where('id',$order_detail->id_order)->first();
-                if (($order->status == false) and ($orders->contains('id',$order->id) == false)) {
+                if (($order->status < 2) and ($order_detail->status == false) and ($orders->contains('id',$order->id) == false)) {
                     $orders->prepend($order);
                 }
             }
@@ -98,9 +98,9 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         //
-        $datetime = $request['date'].' '.$request['time'];
+        $deliver_at = $request['date'].' '.$request['time'];
         $now = Carbon::now();
-        if ($now->lessThan($datetime)) {
+        if ($now->lessThan($deliver_at)) {
             $data = $request->validate([
                 'products' => ['required','min:1'],
                 'quantities' => ['required','min:1'],
@@ -129,8 +129,8 @@ class OrderController extends Controller
                 $order = new Order;
                 $order->id_client = $student->id;
                 $order->total = $total;
-                $order->status = false;
-                $order->deliver_at = $datetime;
+                $order->status = 0;
+                $order->deliver_at = $deliver_at;
 
                 $order->save();
                 
@@ -138,11 +138,13 @@ class OrderController extends Controller
                     $order_details = new OrderDetails;
                     $order_details->id_order = $order->id;
                     $order_details->id_product = $product->id;
+                    $order_details->status = false;
                     $c = 0;
                     while ($c < count($data['products'])) {
                         if ($data['products'][$c] == $product->id) {
                             $order_details->id_seller = $data['sellers'][$c];
                             $order_details->quantity = $data['quantities'][$c];
+                            $order_details->import = $product->unit_price * $data['quantities'][$c];
                         }
                         $c = $c + 1;
                     }
@@ -168,20 +170,25 @@ class OrderController extends Controller
         //
         $order = DB::table('orders')->select()->where('id',$id_order)->first();
         if ($order) {
+            $email = Auth::user()->email;
+            $seller = DB::table('sellers')->select()->where('email',$email)->first();
             $client = DB::table('students')->select()->where('id',$order->id_client)->first();
-            $order_details = DB::table('orders_details')->select()->where('id_order',$order->id)->get();
+            $order_details = DB::table('orders_details')->select()->where('id_order',$order->id)->where('id_seller',$seller->id)->get();
             $products = collect([]);
+            $total = 0;
             foreach ($order_details as $order_detail) {
                 $product = DB::table('products')->select()->where('id',$order_detail->id_product)->first();
                 $products->prepend($product);
+                $total = $total + $order_detail->import;
             }
+
             return view('order.order-details',[
                 'id_order' => $order->id,
                 'client_name' => $client->name.' '.$client->father_last_name.' '.$client->mother_last_name,
                 'client_id_at_school' => $client->id_at_school,
                 'order_details' => $order_details,
                 'products' => $products,
-                'total' => $order->total,
+                'total' => $total,
                 'status' => $order->status,
                 'created_at' => $order->created_at,
                 'updated_at' => $order->updated_at,
@@ -218,8 +225,35 @@ class OrderController extends Controller
         {
             $order = DB::table('orders')->select()->where('id',$id_order)->first();
             if ($order) {
-                if ($order->status == false) {
-                    DB::table('orders')->where('id',$id_order)->update(['status' => true,'updated_at' => Carbon::now(),'delivered_at' => Carbon::now()]);
+                if ($order->status < 2) {
+                    $email = Auth::user()->email;
+                    $seller = DB::table('sellers')->select()->where('email',$email)->first();
+                    //all orders
+                    $order_details = DB::table('orders_details')->select()->where('id_order',$id_order)->get();
+                    //only seller's orders
+                    $order_details_not_delivered = DB::table('orders_details')->select()->where('id_order',$id_order)->where('status',false)->get();
+                    $order_details_seller = DB::table('orders_details')->select()->where('id_order',$id_order)->where('id_seller',$seller->id)->where('status',false)->get();
+                    if (count($order_details_not_delivered) == count($order_details_seller)) {
+                        //deliver complete
+                        DB::table('orders')->where('id',$id_order)->update(['status' => 2,'updated_at' => Carbon::now(),'delivered_at' => Carbon::now()]);
+                        foreach ($order_details_seller as $order_detail) {
+                            DB::table('orders_details')->where('id',$order_detail->id)->update(['status' => true,'updated_at' => Carbon::now(),'delivered_at' => Carbon::now()]);
+                        }
+                        return redirect()->route('home')->with('status', '¡Orden '.$order->id.' marcada como entregada!');
+
+
+                    } else if (count($order_details_not_delivered) >= count($order_details_seller)) {
+                        //deliver partial
+                        DB::table('orders')->where('id',$id_order)->update(['status' => 1,'updated_at' => Carbon::now()]);
+                        foreach ($order_details_seller as $order_detail) {
+                            DB::table('orders_details')->where('id',$order_detail->id)->update(['status' => true,'updated_at' => Carbon::now(),'delivered_at' => Carbon::now()]);
+                        }
+                        return redirect()->route('home')->with('status', '¡Orden '.$order->id.' marcada como entregada!');
+
+                    } else {
+                        //error D:
+                        return redirect()->route('home')->with('failure', '¡Orden corrompida!');
+                    }
                     return redirect()->route('home')->with('status', '¡Orden '.$order->id.' marcada como entregada!');
                 } else {
                     return redirect()->back()->with('status', '¡Orden '.$order->id.' ya estaba marcada como entregada!')->withInput();
