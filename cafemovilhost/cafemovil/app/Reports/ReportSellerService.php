@@ -13,9 +13,9 @@ class ReportSellerService extends \koolreport\KoolReport
         return array(
             "dataSources"=>array(
                 "orders"=>array(
-                    "connectionString"=>"mysql:host=localhost;dbname=cafemovildb",
-                    "username"=>"root",
-                    "password"=>"",
+                    "connectionString"=>env('DB_CONNECTION').":host=".env('DB_HOST').";dbname=".env('DB_DATABASE'),
+                    "username"=>env('DB_USERNAME'),
+                    "password"=>env('DB_PASSWORD'),
                     "charset"=>"utf8"
                 )
             )

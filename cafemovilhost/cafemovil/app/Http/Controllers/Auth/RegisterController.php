@@ -89,8 +89,9 @@ class RegisterController extends Controller
 
         $image = $data['image'];
         if ($image->isValid('image')) {
-            $path = $image->store('profile-images');
-            $student->image_url = $path;
+            $path = Storage::putFile('public/profile-images', $image, 'public');
+            $path = substr($path,7);
+            $seller->image_url = $path;
         }
 
         $student->save();
