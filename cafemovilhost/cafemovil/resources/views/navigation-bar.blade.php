@@ -168,12 +168,12 @@
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="row">
-            
+          
           </div>
           <br />
         </div>
         <!-- /page content -->
-
+        
         <!-- footer content -->
         <footer>
           <div class="pull-right">
