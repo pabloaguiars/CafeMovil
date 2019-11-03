@@ -1,0 +1,336 @@
+<?xml version="1.0"?>
+<project name="CafeMovil" company="Cultech" manager="Pablo Aguiar Solis" phase="" project-start="20191104T000000Z" mrproject-version="2" calendar="1">
+  <properties/>
+  <phases/>
+  <calendars>
+    <day-types>
+      <day-type id="0" name="Working" description="A default working day"/>
+      <day-type id="1" name="Nonworking" description="A default non working day"/>
+      <day-type id="2" name="Use base" description="Use day from base calendar"/>
+    </day-types>
+    <calendar id="1" name="Default">
+      <default-week mon="0" tue="0" wed="0" thu="0" fri="0" sat="1" sun="1"/>
+      <overridden-day-types>
+        <overridden-day-type id="0">
+          <interval start="0800" end="1100"/>
+          <interval start="1130" end="1400"/>
+        </overridden-day-type>
+      </overridden-day-types>
+      <days/>
+    </calendar>
+  </calendars>
+  <tasks>
+    <task id="1" name="Reuni&#xF3;n inicial del proyecto, inicial formalmente su inicio." note="" work="7200" start="20191104T000000Z" end="20191104T100000Z" work-start="20191104T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+    <task id="2" name="Crear repositorio" note="" work="7200" start="20191104T100000Z" end="20191104T123000Z" work-start="20191104T100000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="1" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="3" name="Crear canales de comunicaci&#xF3;n" note="" work="7200" start="20191104T100000Z" end="20191104T123000Z" work-start="20191104T100000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="1" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="4" name="Estudiar las tecnolog&#xED;as a utilizar" note="" work="297000" start="20191104T000000Z" end="20191106T140000Z" work-start="20191104T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+    <task id="5" name="Dise&#xF1;ar las interfaces" note="" work="99000" start="20191104T123000Z" end="20191111T124640Z" work-start="20191104T123000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="3" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="6" name="Dise&#xF1;ar la base de datos" note="" work="59400" start="20191105T091500Z" end="20191108T092500Z" work-start="20191105T091500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="9" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="7" name="Crear base de datos" note="" work="39600" start="20191108T092500Z" end="20191111T092500Z" work-start="20191108T092500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="6" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="8" name="Crear modelos" note="" work="14400" start="20191111T092500Z" end="20191111T115500Z" work-start="20191111T092500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="7" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="9" name="Dise&#xF1;ar y validar l&#xF3;gica de negocio" note="" work="19800" start="20191104T123000Z" end="20191105T091500Z" work-start="20191104T123000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="3" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="10" name="Crear interfaces" note="" work="297000" start="20191111T124640Z" end="20191118T124640Z" work-start="20191111T124640Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="5" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="11" name="Inicio de sesi&#xF3;n" note="" work="14400" start="20191111T115500Z" end="20191111T131500Z" work-start="20191111T115500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="8" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="12" name="Sesi&#xF3;n atemporal" note="" work="7200" start="20191111T131500Z" end="20191111T135500Z" work-start="20191111T131500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="11" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="13" name="Cerrar sesi&#xF3;n" note="" work="7200" start="20191111T135500Z" end="20191112T083500Z" work-start="20191111T135500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="12" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="14" name="Confirmar email" note="" work="14400" start="20191112T083500Z" end="20191112T095500Z" work-start="20191112T083500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="13" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="15" name="Resetear contrase&#xF1;a" note="" work="14400" start="20191112T095500Z" end="20191112T114500Z" work-start="20191112T095500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="14" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="16" name="Home de usuarios" note="" work="14400" start="20191112T114500Z" end="20191112T130500Z" work-start="20191112T114500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="15" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="17" name="Registrar usuarios vendedores" note="" work="14400" start="20191112T130500Z" end="20191113T082500Z" work-start="20191112T130500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="16" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="18" name="Listar usuarios vendedores" note="" work="14400" start="20191113T082500Z" end="20191113T094500Z" work-start="20191113T082500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="17" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="19" name="Detalles usarios vendedores" note="" work="14400" start="20191113T094500Z" end="20191113T113500Z" work-start="20191113T094500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="18" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="20" name="Modificar usuarios vendedores" note="" work="14400" start="20191113T113500Z" end="20191113T125500Z" work-start="20191113T113500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="19" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="21" name="Inhabilitar usuarios vendedores" note="" work="14400" start="20191113T125500Z" end="20191114T081500Z" work-start="20191113T125500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="20" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="22" name="Habilitar usuarios vendedores" note="" work="14400" start="20191114T081500Z" end="20191114T093500Z" work-start="20191114T081500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="21" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="23" name="CRUD de usuarios vendedores por email" note="" work="18000" start="20191114T093500Z" end="20191114T114500Z" work-start="20191114T093500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="22" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="24" name="Reportes para usuarios administrador" note="" work="14400" start="20191114T114500Z" end="20191114T130500Z" work-start="20191114T114500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="23" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="25" name="Registrar productos" note="" work="14400" start="20191114T130500Z" end="20191115T082500Z" work-start="20191114T130500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="24" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="26" name="Listar productos" note="" work="14400" start="20191115T082500Z" end="20191115T094500Z" work-start="20191115T082500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="25" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="27" name="Detalles de productos" note="" work="14400" start="20191115T094500Z" end="20191115T113500Z" work-start="20191115T094500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="26" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="28" name="Modificar productos" note="" work="14400" start="20191115T113500Z" end="20191115T125500Z" work-start="20191115T113500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="27" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="29" name="Inhablitar productos" note="" work="14400" start="20191115T125500Z" end="20191118T081500Z" work-start="20191115T125500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="28" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="30" name="Habilitar productos" note="" work="14400" start="20191118T081500Z" end="20191118T093500Z" work-start="20191118T081500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="29" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="31" name="CRUD de productos por n&#xFA;mero de control en la tienda" note="" work="14400" start="20191118T093500Z" end="20191118T105500Z" work-start="20191118T093500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="30" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="32" name="Listar pedidos" note="" work="14400" start="20191118T105500Z" end="20191118T124500Z" work-start="20191118T105500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="31" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="33" name="Marcar como entregado un pedidos" note="" work="14400" start="20191118T124500Z" end="20191119T080500Z" work-start="20191118T124500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="32" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="34" name="Reportes para usuario vendedor" note="" work="14400" start="20191119T080500Z" end="20191119T092500Z" work-start="20191119T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="33" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="35" name="Listar productos disponibles" note="" work="14400" start="20191119T092500Z" end="20191119T104500Z" work-start="20191119T092500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="34" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="36" name="Generar y procesar orden" note="" work="14400" start="20191119T104500Z" end="20191119T123500Z" work-start="20191119T104500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="35" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="37" name="Reportes para usuarios estudiantes" note="" work="14400" start="20191119T123500Z" end="20191119T135500Z" work-start="20191119T123500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="36" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="38" name="Desarrollo de prueba y validaciones del producto" note="" work="99000" start="20191119T135500Z" end="20191122T104000Z" work-start="20191119T135500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="37" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="39" name="Reuni&#xF3;n informativa para entregar el producto m&#xED;nimo viable" note="" work="28800" start="20191122T104000Z" end="20191122T123000Z" work-start="20191122T104000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="38" type="FS"/>
+      </predecessors>
+    </task>
+  </tasks>
+  <resource-groups>
+    <group id="1" name="" admin-name="" admin-phone="" admin-email=""/>
+    <group id="2" name="Development" admin-name="" admin-phone="" admin-email=""/>
+  </resource-groups>
+  <resources>
+    <resource group="2" id="1" name="SCRUM MASTER Dev Senior" short-name="SM DS1" type="1" units="0" email="" note="" std-rate="0"/>
+    <resource group="2" id="2" name="Dev Jr 1" short-name="DJ1" type="1" units="0" email="" note="" std-rate="0"/>
+    <resource group="2" id="3" name="Dev Jr 2" short-name="DJ2" type="1" units="0" email="" note="" std-rate="0"/>
+    <resource group="2" id="4" name="Dev Intern 1" short-name="DI1" type="1" units="0" email="" note="" std-rate="0"/>
+    <resource group="2" id="5" name="Dev Intern 2" short-name="DI2" type="1" units="0" email="" note="" std-rate="0"/>
+    <resource group="2" id="6" name="Dev UX/UI" short-name="D UX/UI" type="1" units="0" email="" note="" std-rate="0"/>
+  </resources>
+  <allocations>
+    <allocation task-id="37" resource-id="1" units="100"/>
+    <allocation task-id="36" resource-id="1" units="100"/>
+    <allocation task-id="35" resource-id="1" units="100"/>
+    <allocation task-id="34" resource-id="1" units="100"/>
+    <allocation task-id="33" resource-id="1" units="100"/>
+    <allocation task-id="32" resource-id="1" units="100"/>
+    <allocation task-id="31" resource-id="1" units="100"/>
+    <allocation task-id="30" resource-id="1" units="100"/>
+    <allocation task-id="29" resource-id="1" units="100"/>
+    <allocation task-id="28" resource-id="1" units="100"/>
+    <allocation task-id="27" resource-id="1" units="100"/>
+    <allocation task-id="26" resource-id="1" units="100"/>
+    <allocation task-id="25" resource-id="1" units="100"/>
+    <allocation task-id="24" resource-id="1" units="100"/>
+    <allocation task-id="23" resource-id="1" units="100"/>
+    <allocation task-id="22" resource-id="1" units="100"/>
+    <allocation task-id="21" resource-id="1" units="100"/>
+    <allocation task-id="20" resource-id="1" units="100"/>
+    <allocation task-id="19" resource-id="1" units="100"/>
+    <allocation task-id="18" resource-id="1" units="100"/>
+    <allocation task-id="17" resource-id="1" units="100"/>
+    <allocation task-id="16" resource-id="1" units="100"/>
+    <allocation task-id="15" resource-id="1" units="100"/>
+    <allocation task-id="14" resource-id="1" units="100"/>
+    <allocation task-id="13" resource-id="1" units="100"/>
+    <allocation task-id="12" resource-id="1" units="100"/>
+    <allocation task-id="11" resource-id="1" units="100"/>
+    <allocation task-id="39" resource-id="1" units="100"/>
+    <allocation task-id="38" resource-id="1" units="100"/>
+    <allocation task-id="7" resource-id="1" units="100"/>
+    <allocation task-id="8" resource-id="1" units="100"/>
+    <allocation task-id="9" resource-id="1" units="100"/>
+    <allocation task-id="6" resource-id="1" units="33"/>
+    <allocation task-id="3" resource-id="1" units="100"/>
+    <allocation task-id="2" resource-id="1" units="100"/>
+    <allocation task-id="37" resource-id="2" units="100"/>
+    <allocation task-id="36" resource-id="2" units="100"/>
+    <allocation task-id="35" resource-id="2" units="100"/>
+    <allocation task-id="34" resource-id="2" units="100"/>
+    <allocation task-id="33" resource-id="2" units="100"/>
+    <allocation task-id="32" resource-id="2" units="100"/>
+    <allocation task-id="31" resource-id="2" units="100"/>
+    <allocation task-id="30" resource-id="2" units="100"/>
+    <allocation task-id="29" resource-id="2" units="100"/>
+    <allocation task-id="28" resource-id="2" units="100"/>
+    <allocation task-id="27" resource-id="2" units="100"/>
+    <allocation task-id="26" resource-id="2" units="100"/>
+    <allocation task-id="25" resource-id="2" units="100"/>
+    <allocation task-id="24" resource-id="2" units="100"/>
+    <allocation task-id="23" resource-id="2" units="100"/>
+    <allocation task-id="22" resource-id="2" units="100"/>
+    <allocation task-id="21" resource-id="2" units="100"/>
+    <allocation task-id="20" resource-id="2" units="100"/>
+    <allocation task-id="19" resource-id="2" units="100"/>
+    <allocation task-id="18" resource-id="2" units="100"/>
+    <allocation task-id="17" resource-id="2" units="100"/>
+    <allocation task-id="16" resource-id="2" units="100"/>
+    <allocation task-id="15" resource-id="2" units="100"/>
+    <allocation task-id="14" resource-id="2" units="100"/>
+    <allocation task-id="13" resource-id="2" units="100"/>
+    <allocation task-id="12" resource-id="2" units="100"/>
+    <allocation task-id="11" resource-id="2" units="100"/>
+    <allocation task-id="39" resource-id="2" units="100"/>
+    <allocation task-id="8" resource-id="2" units="100"/>
+    <allocation task-id="9" resource-id="2" units="100"/>
+    <allocation task-id="7" resource-id="2" units="100"/>
+    <allocation task-id="6" resource-id="2" units="33"/>
+    <allocation task-id="5" resource-id="2" units="33"/>
+    <allocation task-id="4" resource-id="2" units="100"/>
+    <allocation task-id="6" resource-id="3" units="33"/>
+    <allocation task-id="39" resource-id="3" units="100"/>
+    <allocation task-id="10" resource-id="3" units="100"/>
+    <allocation task-id="5" resource-id="3" units="33"/>
+    <allocation task-id="4" resource-id="3" units="100"/>
+    <allocation task-id="37" resource-id="4" units="100"/>
+    <allocation task-id="36" resource-id="4" units="100"/>
+    <allocation task-id="35" resource-id="4" units="100"/>
+    <allocation task-id="34" resource-id="4" units="100"/>
+    <allocation task-id="33" resource-id="4" units="100"/>
+    <allocation task-id="32" resource-id="4" units="100"/>
+    <allocation task-id="31" resource-id="4" units="100"/>
+    <allocation task-id="30" resource-id="4" units="100"/>
+    <allocation task-id="29" resource-id="4" units="100"/>
+    <allocation task-id="28" resource-id="4" units="100"/>
+    <allocation task-id="27" resource-id="4" units="100"/>
+    <allocation task-id="26" resource-id="4" units="100"/>
+    <allocation task-id="25" resource-id="4" units="100"/>
+    <allocation task-id="24" resource-id="4" units="100"/>
+    <allocation task-id="23" resource-id="4" units="100"/>
+    <allocation task-id="22" resource-id="4" units="100"/>
+    <allocation task-id="21" resource-id="4" units="100"/>
+    <allocation task-id="20" resource-id="4" units="100"/>
+    <allocation task-id="19" resource-id="4" units="100"/>
+    <allocation task-id="18" resource-id="4" units="100"/>
+    <allocation task-id="17" resource-id="4" units="100"/>
+    <allocation task-id="16" resource-id="4" units="100"/>
+    <allocation task-id="15" resource-id="4" units="100"/>
+    <allocation task-id="14" resource-id="4" units="100"/>
+    <allocation task-id="13" resource-id="4" units="100"/>
+    <allocation task-id="12" resource-id="4" units="100"/>
+    <allocation task-id="11" resource-id="4" units="100"/>
+    <allocation task-id="39" resource-id="4" units="100"/>
+    <allocation task-id="4" resource-id="4" units="100"/>
+    <allocation task-id="39" resource-id="5" units="100"/>
+    <allocation task-id="10" resource-id="5" units="100"/>
+    <allocation task-id="4" resource-id="5" units="100"/>
+    <allocation task-id="38" resource-id="6" units="100"/>
+    <allocation task-id="39" resource-id="6" units="100"/>
+    <allocation task-id="10" resource-id="6" units="100"/>
+    <allocation task-id="5" resource-id="6" units="33"/>
+    <allocation task-id="4" resource-id="6" units="100"/>
+  </allocations>
+</project>
